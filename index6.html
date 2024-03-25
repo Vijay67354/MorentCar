@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;300;700;800&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<style>
+    .headermain {
+        background-color: #f6f7f9;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    
+    input[type=text] {
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        font-size: 12px;
+        background-color: white;
+        background-image: url('/icon/search-normal.svg');
+        background-position: 10px 10px;
+        background-repeat: no-repeat;
+        background-size: 16px;
+        padding: 12px 20px 12px 40px;
+        position: relative;
+        align-items: center;
+        border-radius: 70px;
+        height: 40px;
+    }
+    
+    .filter,
+    .filtermobile {
+        position: relative;
+        align-items: center;
+        background-repeat: no-repeat;
+        background-size: 3px 8px;
+        background-position: 3px 3px;
+        top: -1px;
+    }
+    
+    .navbar {
+        display: flex;
+        flex-wrap: wrap;
+        margin: auto;
+        height: 124px;
+        padding-top: 37px;
+        /* border: 1px solid #C3D4E9; */
+        background-color: rgb(255, 255, 255);
+    }
+    
+    .search,
+    .searchmobile {
+        border: 1px solid #C3D4E9;
+    }
+    
+    .cards {
+        display: grid;
+        gap: 1rem;
+    }
+    
+    .carsection,
+    .pickupsection {
+        max-width: 1360px;
+        margin: 0 auto;
+        display: grid;
+        gap: 30px;
+    }
+    
+    .select {
+        font-weight: 500;
+        font-size: 12px;
+    }
+    
+    .location {
+        font-size: 16px;
+        font-weight: 700;
+    }
+    
+    @media screen and (min-width: 200px) and (max-width: 279px) {
+        .navbar {
+            display: none;
+        }
+    }
+    
+    @media screen and (min-width: 280px) and (max-width: 379px) {
+        .morent {
+            display: flex;
+            gap: 10px;
+        }
+        .filter {
+            right: 38px;
+        }
+        .searchmobile .likes {
+            display: none;
+        }
+        .inputsearch {
+            display: none;
+        }
+        .inputsearchmobile {
+            display: block;
+        }
+        .inputsearchmobile {
+            display: flex;
+            align-items: center;
+        }
+        .spacebet {
+            justify-content: space-between;
+        }
+        .likesnoti {
+            display: none;
+        }
+        .navbar {
+            justify-content: space-between;
+        }
+    }
+    
+    @media screen and (min-width: 380px) and (max-width: 459px) {
+        .morent {
+            display: flex;
+            gap: 10px;
+        }
+        .filter {
+            right: 38px;
+        }
+        .likes {
+            display: none;
+        }
+        .inputsearch {
+            display: none;
+        }
+        .inputsearchmobile {
+            display: block;
+        }
+        .inputsearchmobile {
+            display: flex;
+            align-items: center;
+        }
+        .spacebet {
+            justify-content: space-between;
+        }
+        .filtermobile {
+            margin-left: 130px;
+        }
+        .likesnoti {
+            display: none;
+        }
+        .navbar {
+            justify-content: space-between;
+        }
+    }
+    
+    @media screen and (min-width: 460px) and (max-width: 660px) {
+        .morent {
+            display: flex;
+            gap: 40px;
+        }
+        .inputsearchmobile,
+        .searchpasss,
+        .filtermobiles,
+        .spacebet {
+            display: none !important;
+        }
+        .likesnoti {
+            display: none;
+        }
+        .filter {
+            right: 38px;
+        }
+        .noticficarlike {
+            display: flex;
+        }
+        .navbar {
+            justify-content: space-between;
+        }
+    }
+    
+    @media screen and (min-width: 661px) and (max-width: 999px) {
+        .morent {
+            display: flex;
+            gap: 40px;
+        }
+        .noticficarlike {
+            display: flex;
+            gap: 20px;
+        }
+        .filter {
+            right: 38px;
+        }
+        .navbar {
+            justify-content: space-between;
+        }
+        .inputsearchmobile {
+            display: none;
+        }
+        .spacebet {
+            display: none;
+        }
+        .search {
+            width: 230px;
+        }
+    }
+    
+    @media screen and (min-width: 1000px) and (max-width: 1024px) {
+        .navbar {
+            width: 980px;
+        }
+        .search {
+            width: 492px;
+        }
+        .headerfoot {
+            display: flex;
+        }
+        .morent {
+            display: flex;
+            gap: 90px;
+        }
+        .carsectiontwo {
+            margin: auto;
+        }
+        .filter {
+            right: 38px;
+        }
+        .inputsearchmobile {
+            display: none;
+        }
+        .noticficarlike {
+            display: flex;
+            gap: 20px;
+        }
+        .navbar {
+            justify-content: space-between;
+        }
+    }
+    
+    @media screen and (min-width: 1025px) and (max-width: 1300px) {
+        .navbar {
+            width: 1180px;
+        }
+        .headerfoot {
+            display: flex;
+        }
+        .bestplat {
+            width: 1140px;
+        }
+        .filter {
+            right: 38px;
+        }
+        .inputsearchmobile {
+            display: none;
+        }
+        .spacebet {
+            display: none;
+        }
+        .morent {
+            display: flex;
+            gap: 40px;
+        }
+        .navbar {
+            justify-content: space-between;
+        }
+        .noticficarlike {
+            display: flex;
+            gap: 20px;
+        }
+        .search {
+            width: 492px;
+        }
+    }
+    
+    @media screen and (min-width: 1300px) and (max-width: 2900px) {
+        .bestplat {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+        .navbar {
+            width: 1440px;
+            display: flex;
+        }
+        .bestplat {
+            width: 1400px;
+        }
+        .search {
+            width: 492px;
+        }
+        .filter {
+            right: 38px;
+        }
+        .inputsearchmobile {
+            display: none;
+        }
+        .spacebet {
+            display: none;
+        }
+        .morent {
+            display: flex;
+            gap: 70px;
+        }
+        .navbar {
+            justify-content: space-between;
+        }
+        .noticficarlike {
+            display: flex;
+            gap: 20px;
+        }
+        .poularca {
+            max-width: 1360px;
+            margin: auto;
+        }
+    }
+</style>
+
+<style>
+    .cardhead {
+        background-color: #F6F7F9;
+        padding-top: 40px;
+    }
+    
+    .carsection {
+        /* max-width: 1360px; */
+        margin: 0 auto;
+        display: grid;
+        gap: 1rem;
+    }
+    
+    .carcollection {
+        max-width: 1360px;
+        margin: 0 auto;
+        display: grid;
+        gap: 1rem;
+    }
+    
+    .footerseaction {
+        max-width: 1360px;
+        margin: 0 auto;
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: auto auto;
+        justify-content: center;
+        align-items: center;
+        display: grid;
+        grid-template-columns: auto auto;
+        /* grid has two columns; content defines width */
+        justify-content: space-between;
+        /* horizontal alignment of grid tracks */
+        align-content: space-between;
+    }
+    
+    .seactionpick {
+        /* max-width: 1360px; */
+        margin: 0 auto;
+        display: grid;
+        gap: 1rem;
+    }
+    
+    .lowprice {
+        margin-top: 24px;
+        width: 240px;
+    }
+    
+    .btn {
+        background-color: #3563E9;
+        width: 120px;
+        height: 44px;
+        border-radius: 4px;
+        padding: 0px, 20px, 0px, 20px;
+        font-size: 16px;
+        font-weight: 600;
+        color: white;
+        margin-top: 30px;
+        border: none;
+    }
+    
+    .btncar {
+        background-color: #54A6FF;
+        width: 120px;
+        height: 44px;
+        border-radius: 4px;
+        padding: 0px, 20px, 0px, 20px;
+        font-size: 16px;
+        font-weight: 600;
+        color: white;
+        margin-top: 30px;
+        border: none;
+    }
+    
+    .cards {
+        height: 360px;
+    }
+    
+    .best {
+        font-size: 32px;
+        font-weight: 600;
+    }
+    
+    .border {
+        border-left: 1px solid #C3D4E9;
+        height: 48px;
+    }
+    
+    .selectyourdate {
+        width: 126px;
+    }
+    
+    .arrowdow {
+        margin-top: -10px;
+    }
+    
+    .works {
+        font-size: 16px;
+        font-family: 500;
+        color: #131313;
+    }
+    
+    .btnnowrent {
+        width: 116px;
+        height: 40px;
+        border-radius: 4px;
+        text-align: center;
+        background-color: #3563E9;
+        border: none;
+        color: white;
+    }
+    
+    .showmorecar {
+        width: 156px;
+        text-align: center;
+        height: 40px;
+        border-radius: 4px;
+        text-align: center;
+        background-color: #3563E9;
+        border: none;
+        color: white;
+    }
+    
+    .about {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 40px;
+        color: #1A202C;
+    }
+    
+    @media (min-width: 280px) {
+        .carsection {
+            grid-template-columns: repeat(1, 1fr);
+        }
+        .carsection {
+            max-width: 560px;
+        }
+        .car {
+            width: 360px;
+            margin-left: 88px;
+        }
+        .carimage {
+            width: 300px;
+            margin-left: 108px;
+        }
+        .seactionpick {
+            grid-template-columns: repeat(1, 1fr);
+        }
+        .carsectionflexs {
+            display: none;
+        }
+        .cardss {
+            display: none;
+        }
+    }
+    
+    @media (min-width: 600px) {
+        .carsection {
+            grid-template-columns: repeat(1, 1fr);
+        }
+        .carsection {
+            max-width: 560px;
+        }
+        .car {
+            width: 360px;
+            margin-left: 88px;
+        }
+        .seactionpick {
+            grid-template-columns: repeat(1, 1fr);
+        }
+        .carimage {
+            width: 360px;
+            margin-left: 148px;
+        }
+        .pickhead {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .cardss {
+            display: none;
+        }
+        .carcollection {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .carsectionflexs {
+            display: none;
+        }
+        /* .seactionpick {
+            max-width: 360px;
+        } */
+    }
+    /* Screen larger than 900px? 3 columns */
+    
+    @media (min-width: 900px) {
+        .carsection {
+            grid-template-columns: repeat(1, 1fr);
+        }
+        .seactionpick {
+            grid-template-columns: repeat(1, 1fr);
+        }
+        .lowprice {
+            width: 300px;
+            line-height: 22px;
+        }
+        .cardss {
+            display: block;
+        }
+        .best {
+            font-size: 32px;
+            font-weight: 600;
+        }
+        /* .carsection {
+            max-width: 1360px;
+        } */
+        .seactionpick {
+            max-width: 1360px;
+        }
+        .carcollection {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .footerseaction {}
+    }
+    
+    @media screen and (min-width: 1300px) and (max-width: 2900px) {
+        .locations {
+            width: 582px;
+        }
+        .carsection {
+            max-width: 1360px;
+        }
+        .carsection {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .carsectionflexs {
+            display: block;
+        }
+        .locationss {
+            margin-top: 40px;
+        }
+        .cardss {
+            display: block;
+            height: 360px;
+        }
+        .popular {
+            font-size: 16px;
+            font-weight: 600;
+            color: #90A3BF;
+        }
+        .popularview {
+            font-size: 16px;
+            font-weight: 600;
+            color: #3563E9;
+        }
+        .cardshade {
+            display: flex;
+            justify-content: space-between;
+        }
+        .carcollection {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        .seactionpick {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+    
+    .increase {
+        font-weight: 500;
+        font-size: 16px;
+    }
+</style>
+
+
+
+
+
+
+
+<style>
+    .cards {
+        background-image: url('/icon/Ads\ 3.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        padding: 40px;
+    }
+</style>
+
+<body>
+    <div class="navbarseaction">
+        <div class="navbar">
+            <div class="morent">
+                <div class="logo">
+                    <a href="Category.html">
+                        <img src="icon/Logo.svg">
+                    </a>
+                </div>
+                <div class="inputsearch">
+                    <input type="text" placeholder="Search something here" class="search">
+                    <img src="icon/filter.svg" class="filter">
+                </div>
+            </div>
+            <div class="noticficarlike">
+                <div>
+                    <img src="icon/Like (1).svg" class="likesnoti">
+                </div>
+                <div>
+                    <img src="icon/Notification.svg" class="likesnoti">
+                </div>
+                <div>
+                    <img src="icon/Settings.svg" class="likesnoti">
+                </div>
+                <div>
+                    <img src="icon/Profil.svg" class="like">
+                </div>
+            </div>
+
+            <!-- ///mobile viwe//////// -->
+            <div class="spacebet">
+                <div class="inputsearchmobile">
+                    <div class="searchpasss">
+                        <input type="text" placeholder="Search something here" class="searchmobile">
+                    </div>
+                    <div class="searchpasss">
+                        <img src="icon/Filterright.svg" class="filtermobiles">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="cardhead">
+
+        <div class="carsection">
+
+            <div class="cards" style=" border-radius: 10px;">
+                <a href="Category.html">
+                    <div class="carrental">
+                        <h3 class="best" style="color: white;">The Best Platform</h3>
+
+                        <h3 class="best" style="color: white;">for Car Rental</h3>
+                        <div class="lowprice">
+                            <p class="ease" style="color: white;">Ease of doing a car rental safely and reliably. Of course at a low price.</p>
+                        </div>
+                        <button class="btn">Rental Car</button>
+                        <div class="cars" style="text-align: center;">
+                            <a href="Category.html">
+                                <img src="background/image 7.svg" class="car" style="margin-top: -40px; ">
+                            </a>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <a href="Category.html">
+                <div class="cardss" style="background-color: #3563E9; padding: 20px; border-radius: 10px;">
+                    <div class="carrental" style="padding: 20px;">
+                        <h3 class="best" style="color: white;">Easy Way to Rent a</h3>
+
+                        <h3 class="best" style="color: white;">Car at low Price</h3>
+                        <div class="lowprice">
+                            <p class="ease" style="color: white;">Providing cheap car rental services and safe and comfortable facilities.</p>
+                        </div>
+                        <button class="btncar">Rental Car</button>
+                        <div class="cars" style="text-align: center;">
+                            <img src="background/image 8.svg" class="carimage" style="margin-top: -39px;">
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+        <div class="seactionpick" style="margin-top: 40px;">
+            <div class="locations" style="background-color: white; padding: 20px; border-radius: 20px">
+                <div class="pickup" style="display: flex; gap: 14px; align-items: center;">
+                    <div>
+                        <img src="icon/mark (2).svg" style="margin-top: -5px;margin-top: 10px; margin-bottom: 20px">
+                    </div>
+                    <div>
+                        <h1 style="font-weight: 600; font-size: 16px; color: #1A202C; margin-top: 10px; margin-bottom: 20px">Pick-Up</h1>
+                    </div>
+                </div>
+                <div class="pickhead" style="display: flex; ">
+                    <div class="carsectionflex">
+                        <h1 style="font-size: 19px; font-weight: 700;">Locations</h1>
+                        <div class="select" style="display: flex; align-items: center; ">
+                            <div class="selectyourdate">
+                                <p style="color: 
+                    #90A3BF; font-weight: 500; font-size: 13px;">select your date</p>
+                            </div>
+                            <div>
+                                <img src="icon/arrow-down.svg" class="arrowdow">
+                            </div>
+                            <div class="border" style="margin-left: 20px;">
+                                <h1 class="border"></h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carsectionflex">
+                        <h1 style="font-size: 19px; font-weight: 700; margin-left: 25px;">Date</h1>
+                        <div class="select" style="display: flex; align-items: center; gap: 20px;">
+                            <div class="selectyourdate">
+                                <p style="color: 
+                    #90A3BF; font-weight: 500; font-size: 13px; margin-left: 25px;">select your date</p>
+                            </div>
+                            <div>
+                                <img src="icon/arrow-down.svg" class="arrowdow">
+                            </div>
+                            <div class="border">
+                                <h1 class="border"></h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carsectionflexs ">
+                        <h1 style="font-size: 19px; font-weight: 700; margin-left: 25px;">Time</h1>
+                        <div class="selecte" style="display: flex; align-items: center; gap: 20px;">
+                            <div class="selectyourdate">
+                                <p style="color: 
+                    #90A3BF; font-weight: 500; font-size: 13px; margin-left: 25px;">select your date</p>
+                            </div>
+                            <div>
+                                <img src="icon/arrow-down.svg" class="arrowdow">
+                            </div>
+                            <div class="border">
+                                <h1 class="border"></h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="locationss" style="text-align: center; ">
+                <img src="icon/Switch.svg">
+            </div>
+            <div class="locations" style="background-color: white; padding: 20px; border-radius: 20px">
+                <div class="pickup" style="display: flex; gap: 14px; align-items: center;">
+                    <div>
+                        <img src="icon/mark (2).svg" style="margin-top: -5px;margin-top: 10px; margin-bottom: 20px">
+                    </div>
+                    <div>
+                        <h1 style="font-weight: 600; font-size: 16px; color: #1A202C; margin-top: 10px; margin-bottom: 20px">Drop-off</h1>
+                    </div>
+                </div>
+                <div class="pickhead" style="display: flex; ">
+                    <div class="carsectionflex">
+                        <h1 style="font-size: 19px; font-weight: 700;">Locations</h1>
+                        <div class="select" style="display: flex; align-items: center; ">
+                            <div class="selectyourdate">
+                                <p style="color: 
+                    #90A3BF; font-weight: 500; font-size: 13px;">select your date</p>
+                            </div>
+                            <div>
+                                <img src="icon/arrow-down.svg" class="arrowdow">
+                            </div>
+                            <div class="border" style="margin-left: 20px;">
+                                <h1 class="border"></h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carsectionflex">
+                        <h1 style="font-size: 19px; font-weight: 700; margin-left: 25px;">Date</h1>
+                        <div class="select" style="display: flex; align-items: center; gap: 20px;">
+                            <div class="selectyourdate">
+                                <p style="color: 
+                    #90A3BF; font-weight: 500; font-size: 13px; margin-left: 25px;">select your date</p>
+                            </div>
+                            <div>
+                                <img src="icon/arrow-down.svg" class="arrowdow">
+                            </div>
+                            <div class="border">
+                                <h1 class="border"></h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carsectionflexs">
+                        <h1 style="font-size: 19px; font-weight: 700; margin-left: 25px;">Time</h1>
+                        <div class="select" style="display: flex; align-items: center; gap: 20px;">
+                            <div class="selectyourdate">
+                                <p style="color: 
+                    #90A3BF; font-weight: 500; font-size: 13px; margin-left: 25px;">select your date</p>
+                            </div>
+                            <div>
+                                <img src="icon/arrow-down.svg" class="arrowdow">
+                            </div>
+                            <div class="border">
+                                <h1 class="border"></h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="poularca" style="display: flex; justify-content: space-between; margin-top: 40px; margin-bottom: 20px;">
+            <div>
+                <p class="popular">Popular Car</p>
+            </div>
+            <div>
+                <p class="popularview">View All</p>
+            </div>
+        </div>
+
+
+        <div>
+            <div class="carcollection" style=" gap: 30px;">
+                <div class="cardhsafe" style=" box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; padding: 20px;">
+                    <div class="cardshade">
+                        <div>
+                            <p1 aria-checked="kon" style="font-weight: 700; font-size: 20px;">Koenigsegg</p1>
+                            <br>
+                            <p1 style="font-size: 14px; font-weight: 700; color: 
+                    #90A3BF; line-height: 20px;">Sport</p1>
+                        </div>
+                        <div>
+                            <a href="Detailcar.html">
+                                <img src="icon/Like (4).svg">
+                            </a>
+                        </div>
+                    </div>
+                    <a href="Detailcar.html">
+                        <img src="icon/car (12).svg" style="margin-top: 50px; margin-bottom: 30px;">
+                    </a>
+                    <div class="gasline" style="display: flex; gap: 20px;">
+                        <div class="gasline" style="display: flex; gap: 10px;">
+                            <div>
+                                <img src="icon/gas-station.svg">
+                            </div>
+                            <div>
+                                <p style="color: #90A3BF; font-size: 14px;">90 L</p>
+                            </div>
+                        </div>
+                        <div class="gasline" style="display: flex; gap: 10px;">
+                            <div>
+                                <img src="icon/Car (13).svg">
+                            </div>
+                            <div>
+                                <p style="color: #90A3BF;">Manual</p>
+                            </div>
+                        </div>
+                        <div class="gasline" style="display: flex; gap: 10px;">
+                            <div>
+                                <img src="icon/profile-2user.svg">
+                            </div>
+                            <div>
+                                <p style="color: #90A3BF; font-size: 14px;">Manual</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="dayper" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+                        <div>
+                            <p><strong>$72.00/</strong> day</p>
+                        </div>
+                        <div>
+                            <button class="btnnowrent">Rent Now</button>
+                        </div>
+                    </div>
+                    <!-- <p class="dollar" style="margin-top: -20px;"> $80.00</p> -->
+                </div>
+                <div class="cardhsafe" style=" box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; padding: 20px;">
+                    <div class="cardshade">
+                        <div>
+                            <p1 aria-checked="kon" style="font-weight: 700; font-size: 20px;">Nissan GT - R Sport
+                            </p1>
+                            <br>
+                            <p1 style="font-size: 14px; font-weight: 700; color: 
+                    #90A3BF; line-height: 20px;">Sport</p1>
+                        </div>
+                        <div>
+                            <img src="icon/Like (4).svg">
+                        </div>
+                    </div>
+                    <a href="Detailcar.html">
+                        <img src="icon/Car (14).svg" style="margin-top: 50px; margin-bottom: 30px;">
+                    </a>
+                    <div class="gasline" style="display: flex; gap: 20px;">
+                        <div class="gasline" style="display: flex; gap: 10px;">
+                            <div>
+                                <img src="icon/gas-station.svg">
+                            </div>
+                            <div>
+                                <p style="color: #90A3BF; font-size: 14px;">90 L</p>
+                            </div>
+                        </div>
+                        <div class="gasline" style="display: flex; gap: 10px;">
+                            <div>
+                                <img src="icon/Car (13).svg">
+                            </div>
+                            <div>
+                                <p style="color: #90A3BF;">Manual</p>
+                            </div>
+                        </div>
+                        <div class="gasline" style="display: flex; gap: 10px;">
+                            <div>
+                                <img src="icon/profile-2user.svg">
+                            </div>
+                            <div>
+                                <p style="color: #90A3BF; font-size: 14px;">People</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="dayper" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+                        <div>
+                            <p><strong>$72.00/</strong> day</p>
+                        </div>
+                        <div>
+                            <button class="btnnowrent">Rent Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="cardhsafe" style=" box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; padding: 20px;">
+                    <div class="cardshade">
+                        <div>
+                            <p1 aria-checked="kon" style="font-weight: 700; font-size: 20px;">Rolls - Royce Sedan
+                            </p1>
+                            <br>
+                            <p1 style="font-size: 14px; font-weight: 700; color: 
+                    #90A3BF; line-height: 20px;">Sport</p1>
+                        </div>
+                        <div>
+                            <img src="icon/Like (4).svg">
+                        </div>
+                    </div>
+                    <a href="Detailcar.html">
+                        <img src="icon/Car (14).svg" style="margin-top: 50px; margin-bottom: 30px;">
+                    </a>
+                    <div class="gasline" style="display: flex; gap: 20px;">
+                        <div class="gasline" style="display: flex; gap: 10px;">
+                            <div>
+                                <img src="icon/gas-station.svg">
+                            </div>
+                            <div>
+                                <p style="color: #90A3BF; font-size: 14px;">90 L</p>
+                            </div>
+                        </div>
+                        <div class="gasline" style="display: flex; gap: 10px;">
+                            <div>
+                                <img src="icon/Car (13).svg">
+                            </div>
+                            <div>
+                                <p style="color: #90A3BF;">Manual</p>
+                            </div>
+                        </div>
+                        <div class="gasline" style="display: flex; gap: 10px;">
+                            <div>
+                                <img src="icon/profile-2user.svg">
+                            </div>
+                            <div>
+                                <p style="color: #90A3BF; font-size: 14px;">People</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="dayper" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+                        <div>
+                            <p><strong>$72.00/</strong> day</p>
+                        </div>
+                        <div>
+                            <button class="btnnowrent">Rent Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="cardhsafe" style=" box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; padding: 20px;">
+                    <div class="cardshade">
+                        <div>
+                            <p1 aria-checked="kon" style="font-weight: 700; font-size: 20px;">Nissan GT - R Sport
+                            </p1>
+                            <br>
+                            <p1 style="font-size: 14px; font-weight: 700; color: 
+                    #90A3BF; line-height: 20px;">Sport</p1>
+                        </div>
+                        <div>
+                            <img src="icon/Like (4).svg">
+                        </div>
+                    </div>
+                    <a href="Detailcar.html">
+                        <img src="icon/Car (16).svg" style="margin-top: 50px; margin-bottom: 30px;">
+                    </a>
+                    <div class="gasline" style="display: flex; gap: 20px;">
+                        <div class="gasline" style="display: flex; gap: 10px;">
+                            <div>
+                                <img src="icon/gas-station.svg">
+                            </div>
+                            <div>
+                                <p style="color: #90A3BF; font-size: 14px;">90 L</p>
+                            </div>
+                        </div>
+                        <div class="gasline" style="display: flex; gap: 10px;">
+                            <div>
+                                <img src="icon/Car (13).svg">
+                            </div>
+                            <div>
+                                <p style="color: #90A3BF;">Manual</p>
+                            </div>
+                        </div>
+                        <div class="gasline" style="display: flex; gap: 10px;align-items: center;">
+                            <div>
+                                <img src="icon/profile-2user.svg">
+                            </div>
+                            <div>
+                                <p style="color: #90A3BF; font-size: 14px;">People</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="dayper" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+                        <div>
+                            <p><strong>$72.00/</strong> day</p>
+                        </div>
+                        <div>
+                            <button class="btnnowrent">Rent Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="poularca" style="display: flex; justify-content: space-between; margin-top: 40px; margin-bottom: 20px;">
+            <div>
+                <p class="popular">Recomendation Car</p>
+            </div>
+
+        </div>
+
+
+        <div>
+            <div class="carcollection" style=" gap: 30px;">
+                <div class="cardhsafe" style=" box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; padding: 20px;">
+                    <div class="cardshade">
+                        <div>
+                            <p1 aria-checked="kon" style="font-weight: 700; font-size: 20px;">All New Rush</p1>
+                            <br>
+                            <p1 style="font-size: 14px; font-weight: 700; color: 
+                    #90A3BF; line-height: 20px;">Suv</p1>
+                        </div>
+                        <div>
+                            <img src="icon/Like (4).svg">
+                        </div>
+                    </div>
+                    <a href="Detailcar.html">
+                        <img src="icon/Car (17).svg" style="margin-top: 50px; margin-bottom: 30px;">
+                    </a>
+                    <div class="gasline" style="display: flex; gap: 20px;">
+                        <div class="gasline" style="display: flex; gap: 10px;">
+                            <div>
+                                <img src="icon/gas-station.svg">
+                            </div>
+                            <div>
+                                <p style="color: #90A3BF; font-size: 14px;">90 L</p>
+                            </div>
+                        </div>
+                        <div class="gasline" style="display: flex; gap: 10px;">
+                            <div>
+                                <img src="icon/Like (3).svg">
+                            </div>
+                            <div>
+                                <p style="color: #90A3BF;">Manual</p>
+                            </div>
+                        </div>
+                        <div class="gasline" style="display: flex; gap: 10px;">
+                            <div>
+                                <img src="icon/profile-2user.svg">
+                            </div>
+                            <div>
+                                <p style="color: #90A3BF; font-size: 14px;">Manual</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="dayper" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+                        <div>
+                            <p><strong>$72.00/</strong> day</p>
+                        </div>
+                        <div>
+                            <button class="btnnowrent">Rent Now</button>
+                        </div>
+                    </div>
+                    <!-- <p class="dollar" style="margin-top: -20px;"> $80.00</p> -->
+                </div>
+                <div class="cardhsafe" style=" box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; padding: 20px;">
+                    <div class="cardshade">
+                        <div>
+                            <p1 aria-checked="kon" style="font-weight: 700; font-size: 20px;"> V SUV
+                            </p1>
+                            <br>
+                            <p1 style="font-size: 14px; font-weight: 700; color: 
+                    #90A3BF; line-height: 20px;">Suv</p1>
+                        </div>
+                        <div>
+                            <img src="icon/Like (4).svg">
+                        </div>
+                    </div>
+                    <a href="Category.html">
+                        <img src="icon/Car (19).svg" style="margin-top: 50px; margin-bottom: 30px;">
+                    </a>
+                    <div class="gasline" style="display: flex; gap: 20px;">
+                        <div class="gasline" style="display: flex; gap: 10px;">
+                            <div>
+                                <img src="icon/gas-station.svg">
+                            </div>
+                            <div>
+                                <p style="color: #90A3BF; font-size: 14px;">90 L</p>
+                            </div>
+                        </div>
+                        <div class="gasline" style="display: flex; gap: 10px;">
+                            <div>
+                                <img src="icon/Like (3).svg">
+                            </div>
+                            <div>
+                                <p style="color: #90A3BF;">Manual</p>
+                            </div>
+                        </div>
+                        <div class="gasline" style="display: flex; gap: 10px;">
+                            <div>
+                                <img src="icon/profile-2user.svg">
+                            </div>
+                            <div>
+                                <p style="color: #90A3BF; font-size: 14px;">People</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="dayper" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+                        <div>
+                            <p><strong>$72.00/</strong> day</p>
+                        </div>
+                        <div>
+                            <button class="btnnowrent">Rent Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="cardhsafe" style=" box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; padding: 20px;">
+                    <div class="cardshade">
+                        <div>
+                            <p1 aria-checked="kon" style="font-weight: 700; font-size: 20px;">All New Terios
+                            </p1>
+                            <br>
+                            <p1 style="font-size: 14px; font-weight: 700; color: 
+                    #90A3BF; line-height: 20px;">Suv</p1>
+                        </div>
+                        <div>
+                            <img src="icon/Like (4).svg">
+                        </div>
+                    </div>
+                    <a href="Category.html">
+                        <img src="icon/Car (18).svg" style="margin-top: 50px; margin-bottom: 30px;">
+                    </a>
+                    <div class="gasline" style="display: flex; gap: 20px;">
+                        <div class="gasline" style="display: flex; gap: 10px;">
+                            <div>
+                                <img src="icon/gas-station.svg">
+                            </div>
+                            <div>
+                                <p style="color: #90A3BF; font-size: 14px;">90 L</p>
+                            </div>
+                        </div>
+                        <div class="gasline" style="display: flex; gap: 10px;">
+                            <div>
+                                <img src="icon/Like (3).svg">
+                            </div>
+                            <div>
+                                <p style="color: #90A3BF;">Manual</p>
+                            </div>
+                        </div>
+                        <div class="gasline" style="display: flex; gap: 10px;">
+                            <div>
+                                <img src="icon/profile-2user.svg">
+                            </div>
+                            <div>
+                                <p style="color: #90A3BF; font-size: 14px;">People</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="dayper" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+                        <div>
+                            <p><strong>$72.00/</strong> day</p>
+                        </div>
+                        <div>
+                            <button class="btnnowrent">Rent Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="cardhsafe" style=" box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; padding: 20px;">
+                    <div class="cardshade">
+                        <div>
+                            <p1 aria-checked="kon" style="font-weight: 700; font-size: 20px;">CR - V
+                            </p1>
+                            <br>
+                            <p1 style="font-size: 14px; font-weight: 700; color: 
+                    #90A3BF; line-height: 20px;">SUV</p1>
+                        </div>
+                        <div>
+                            <img src="icon/Like (4).svg">
+                        </div>
+                    </div>
+                    <a href="Category.html">
+                        <img src="icon/Car (17).svg" style="margin-top: 50px; margin-bottom: 30px;">
+                    </a>
+                    <div class="gasline" style="display: flex; gap: 20px;">
+                        <div class="gasline" style="display: flex; gap: 10px;">
+                            <div>
+                                <img src="icon/gas-station.svg">
+                            </div>
+                            <div>
+                                <p style="color: #90A3BF; font-size: 14px;">90 L</p>
+                            </div>
+                        </div>
+                        <div class="gasline" style="display: flex; gap: 10px;">
+                            <div>
+                                <img src="icon/Like (3).svg">
+                            </div>
+                            <div>
+                                <p style="color: #90A3BF;">Manual</p>
+                            </div>
+                        </div>
+                        <div class="gasline" style="display: flex; gap: 10px;align-items: center;">
+                            <div>
+                                <img src="icon/profile-2user.svg">
+                            </div>
+                            <div>
+                                <p style="color: #90A3BF; font-size: 14px;">People</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="dayper" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+                        <div>
+                            <p><strong>$72.00/</strong> day</p>
+                        </div>
+                        <div>
+                            <button class="btnnowrent">Rent Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 40px;">
+            <div class="carcollection" style=" gap: 30px;">
+                <div class="cardhsafe" style=" box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; padding: 20px;">
+                    <div class="cardshade">
+                        <div>
+                            <p1 aria-checked="kon" style="font-weight: 700; font-size: 20px;">All New Rush</p1>
+                            <br>
+                            <p1 style="font-size: 14px; font-weight: 700; color: 
+                    #90A3BF; line-height: 20px;">Hatchback</p1>
+                        </div>
+                        <div>
+                            <img src="icon/Like (4).svg">
+                        </div>
+                    </div>
+                    <a href="Category.html">
+                        <img src="icon/Car (17).svg" style="margin-top: 50px; margin-bottom: 30px;">
+                    </a>
+                    <div class="gasline" style="display: flex; gap: 20px;">
+                        <div class="gasline" style="display: flex; gap: 10px;">
+                            <div>
+                                <img src="icon/gas-station.svg">
+                            </div>
+                            <div>
+                                <p style="color: #90A3BF; font-size: 14px;">90 L</p>
+                            </div>
+                        </div>
+                        <div class="gasline" style="display: flex; gap: 10px;">
+                            <div>
+                                <img src="icon/Like (3).svg">
+                            </div>
+                            <div>
+                                <p style="color: #90A3BF;">Manual</p>
+                            </div>
+                        </div>
+                        <div class="gasline" style="display: flex; gap: 10px;">
+                            <div>
+                                <img src="icon/profile-2user.svg">
+                            </div>
+                            <div>
+                                <p style="color: #90A3BF; font-size: 14px;">Manual</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="dayper" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+                        <div>
+                            <p><strong>$72.00/</strong> day</p>
+                        </div>
+                        <div>
+                            <button class="btnnowrent">Rent Now</button>
+                        </div>
+                    </div>
+                    <!-- <p class="dollar" style="margin-top: -20px;"> $80.00</p> -->
+                </div>
+                <div class="cardhsafe" style=" box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; padding: 20px;">
+                    <div class="cardshade">
+                        <div>
+                            <p1 aria-checked="kon" style="font-weight: 700; font-size: 20px;"> New MG ZS
+                            </p1>
+                            <br>
+                            <p1 style="font-size: 14px; font-weight: 700; color: 
+                    #90A3BF; line-height: 20px;">Suv</p1>
+                        </div>
+                        <div>
+                            <img src="icon/Like (4).svg">
+                        </div>
+                    </div>
+                    <a href="Category.html">
+                        <img src="icon/Car (20).svg" style="margin-top: 50px; margin-bottom: 30px;">
+                    </a>
+                    <div class="gasline" style="display: flex; gap: 20px;">
+                        <div class="gasline" style="display: flex; gap: 10px;">
+                            <div>
+                                <img src="icon/gas-station.svg">
+                            </div>
+                            <div>
+                                <p style="color: #90A3BF; font-size: 14px;">90 L</p>
+                            </div>
+                        </div>
+                        <div class="gasline" style="display: flex; gap: 10px;">
+                            <div>
+                                <img src="icon/Like (3).svg">
+                            </div>
+                            <div>
+                                <p style="color: #90A3BF;">Manual</p>
+                            </div>
+                        </div>
+                        <div class="gasline" style="display: flex; gap: 10px;">
+                            <div>
+                                <img src="icon/profile-2user.svg">
+                            </div>
+                            <div>
+                                <p style="color: #90A3BF; font-size: 14px;">People</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="dayper" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+                        <div>
+                            <p><strong>$72.00/</strong> day</p>
+                        </div>
+                        <div>
+                            <button class="btnnowrent">Rent Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="cardhsafe" style=" box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; padding: 20px;">
+                    <div class="cardshade">
+                        <div>
+                            <p1 aria-checked="kon" style="font-weight: 700; font-size: 20px;">New Zx Excite
+
+                            </p1>
+                            <br>
+                            <p1 style="font-size: 14px; font-weight: 700; color: 
+                    #90A3BF; line-height: 20px;">Hatchback</p1>
+                        </div>
+                        <div>
+                            <img src="icon/Like (4).svg">
+                        </div>
+                    </div>
+                    <a href="Category.html">
+                        <img src="icon/Car (21).svg" style="margin-top: 50px; margin-bottom: 30px;">
+                    </a>
+                    <div class="gasline" style="display: flex; gap: 20px;">
+                        <div class="gasline" style="display: flex; gap: 10px;">
+                            <div>
+                                <img src="icon/gas-station.svg">
+                            </div>
+                            <div>
+                                <p style="color: #90A3BF; font-size: 14px;">90 L</p>
+                            </div>
+                        </div>
+                        <div class="gasline" style="display: flex; gap: 10px;">
+                            <div>
+                                <img src="icon/Like (3).svg">
+                            </div>
+                            <div>
+                                <p style="color: #90A3BF;">Manual</p>
+                            </div>
+                        </div>
+                        <div class="gasline" style="display: flex; gap: 10px;">
+                            <div>
+                                <img src="icon/profile-2user.svg">
+                            </div>
+                            <div>
+                                <p style="color: #90A3BF; font-size: 14px;">People</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="dayper" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+                        <div>
+                            <p><strong>$72.00/</strong> day</p>
+                        </div>
+                        <div>
+                            <button class="btnnowrent">Rent Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="cardhsafe" style=" box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; padding: 20px;">
+                    <div class="cardshade">
+                        <div>
+                            <p1 aria-checked="kon" style="font-weight: 700; font-size: 20px;">New MG ZS SUV
+                            </p1>
+                            <br>
+                            <p1 style="font-size: 14px; font-weight: 700; color: 
+                    #90A3BF; line-height: 20px;">SUV</p1>
+                        </div>
+                        <div>
+                            <img src="icon/Like (4).svg">
+                        </div>
+                    </div>
+                    <a href="Category.html">
+                        <img src="icon/Car (20).svg" style="margin-top: 50px; margin-bottom: 30px;">
+                    </a>
+                    <div class="gasline" style="display: flex; gap: 20px;">
+                        <div class="gasline" style="display: flex; gap: 10px;">
+                            <div>
+                                <img src="icon/gas-station.svg">
+                            </div>
+                            <div>
+                                <p style="color: #90A3BF; font-size: 14px;">90 L</p>
+                            </div>
+                        </div>
+                        <div class="gasline" style="display: flex; gap: 10px;">
+                            <div>
+                                <img src="icon/Like (3).svg">
+                            </div>
+                            <div>
+                                <p style="color: #90A3BF;">Manual</p>
+                            </div>
+                        </div>
+                        <div class="gasline" style="display: flex; gap: 10px;align-items: center;">
+                            <div>
+                                <img src="icon/profile-2user.svg">
+                            </div>
+                            <div>
+                                <p style="color: #90A3BF; font-size: 14px;">People</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="dayper" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+                        <div>
+                            <p><strong>$72.00/</strong> day</p>
+                        </div>
+                        <div>
+                            <button class="btnnowrent">Rent Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="shwmore" style="text-align: center; ">
+            <button class="showmorecar" style="margin-top: 70px; margin-bottom: 70px;">Show more Car</button>
+        </div>
+
+
+
+        <div class="footerseaction">
+            <div class="footermain">
+                <img src="icon/Logo.svg">
+                <br/>
+                <br/>
+                <p1 class="increase" style="margin-top: 20px; font-size: 16px; font-weight: 500;">Our vision is to provide convenience <br style="font-weight: 500;"> and help increase your sales business.</p1>
+            </div>
+            <div class="footermain">
+                <div class="footerhea" style="display: flex; gap: 60px;">
+                    <div>
+                        <h1 class="about">About</h1>
+                        <div>
+                            <p class="works">How it works</p>
+                        </div>
+                        <div>
+                            <p class="works">Featured</p>
+                        </div>
+                        <div>
+                            <p class="works">Partnership</p>
+                        </div>
+
+                        <div>
+                            <p class="works"> Bussiness Relation</p>
+                        </div>
+
+                    </div>
+                    <div>
+                        <h1 class="about">Community</h1>
+
+                        <div>
+                            <p class="works"> Event</p>
+                        </div>
+
+                        <div>
+                            <p class="works">Blog</p>
+                        </div>
+
+                        <div>
+                            <p class="works">Podcast</p>
+                        </div>
+
+                        <div>
+                            <p class="works"> Friend</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h1 class="about">Socials</h1>
+                        <div>
+                            <p class="works">Discord</p>
+                        </div>
+                        <div>
+                            <p class="works">Instagram</p>
+                        </div>
+                        <div>
+                            <p class="works">Facebook</p>
+                        </div>
+                        <div>
+                            <p class="works">Twitter</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="max" style="max-width: 1360px; margin: auto; margin-top: 30px;">
+            <hr class="footerher">
+            <div class="morentfooterlast" style="display: flex; justify-content: space-between; margin-top: 30px; ">
+                <div>
+                    <p style="color: #1A202C; font-weight: 600; font-size: 16px;">©2022 MORENT. All rights reserved</p>
+                </div>
+                <div style="display: flex; gap: 40px;">
+                    <p style="color: 
+                    #1A202C; font-weight: 600; font-size: 16px;">Privacy policy</p>
+                    <p style="color: 
+                    #1A202C; font-weight: 600; font-size: 16px;">Trems & Condition</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src=" https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Flip.min.js"></script>
+
+</body>
+
+</html>
